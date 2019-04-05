@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace PDRaidTool.Models
 {
-    public class PlayerEntry
+    public class Player
     {
         public int Id;
-        public int PlayerId;
-        public int ProfessionId;
-        public int SpecialisationId;
-        public int RoleId;
-        public byte Preference;
+        public string Nickname;
     }
 }

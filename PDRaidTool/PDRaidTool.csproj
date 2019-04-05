@@ -95,10 +95,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Models\PlayerEntry.cs" />
     <Compile Include="Models\Profession.cs" />
+    <Compile Include="Models\RaidSlot.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Specialisation.cs" />
+    <Compile Include="Utilities\PreferenceCalculation.cs" />
     <Compile Include="ViewModels\Interfaces\IMainViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
