@@ -101,10 +101,21 @@
     <Compile Include="Models\RaidSlot.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Specialisation.cs" />
+    <Compile Include="UI\RaidSlotControl.xaml.cs">
+      <DependentUpon>RaidSlotControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\HungarianAlgorithm.cs" />
     <Compile Include="Utilities\PreferenceCalculation.cs" />
     <Compile Include="ViewModels\Interfaces\IMainViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Page Include="ResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\RaidSlotControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
