@@ -13,6 +13,6 @@ namespace PDRaidTool.Models
         public int ProfessionId;
         public int SpecialisationId;
         public int RoleId;
-        public byte Preference;
+        public int Preference;
     }
 }

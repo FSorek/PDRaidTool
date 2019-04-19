@@ -9,9 +9,9 @@ namespace PDRaidTool.Utilities
 {
     public class PreferenceCalculation
     {
-        public void Calculate(RaidSlot[] Slots, Player[] Players, PlayerEntry[] PlayersEntries)
+        public PlayerEntry[,] CreateEntryMatrix(RaidSlot[] Slots, Player[] Players, PlayerEntry[] PlayersEntries)
         {
-            int[,] PreferenceMatrix = new int[Players.Length,Slots.Length];
+            PlayerEntry[,] PreferenceMatrix = new PlayerEntry[Players.Length,Slots.Length];
             for (int i = 0; i < Players.Length; i++)
             {
                 PlayerEntry[] PlayerEntries = (from entries in PlayersEntries
@@ -19,23 +19,37 @@ namespace PDRaidTool.Utilities
                     select entries).ToArray();
                 for (int j = 0; j < Slots.Length; j++)
                 {
-                    PreferenceMatrix[i, j] = CreatePreference(Slots[j], PlayerEntries);
+                    var HighestPreferenceId = FindHighestPreferenceId(Slots[j], PlayerEntries);
+                    PreferenceMatrix[i, j] = HighestPreferenceId >= 0
+                        ? PlayersEntries[HighestPreferenceId]
+                        : new PlayerEntry(){  };
+
+                    if (PreferenceMatrix[i, j].Preference <= 0)
+                        PreferenceMatrix[i, j].Preference = 110;
                 }
             }
+            return PreferenceMatrix;
         }
 
-        public int CreatePreference(RaidSlot slot, PlayerEntry[] playerEntries) // This also needs to keep track of the entry Id, to do next time
+        public int FindHighestPreferenceId(RaidSlot slot, PlayerEntry[] playerEntries)
         {
-            int HighestPreferenceEntryId = -1;
+            int HighestPreferenceEntryId = 0;
+            bool found = false;
             
-            foreach (var entry in playerEntries)
+            for(int i = 0; i < playerEntries.Length; i++)
             {
-                if(FitsToSlot(entry, slot))
-                    if (HighestPreferenceEntryId < entry.Preference)
-                        HighestPreferenceEntryId = entry.Preference;
+                if(FitsToSlot(playerEntries[i], slot))
+                    if (playerEntries[HighestPreferenceEntryId].Preference <= playerEntries[i].Preference)
+                    {
+                        HighestPreferenceEntryId = playerEntries[i].Id;
+                        found = true;
+                    }
             }
 
-            return playerEntries[HighestPreferenceEntryId].Preference;
+            if (found)
+                return HighestPreferenceEntryId;
+            else
+                return -1;
         }
 
         public bool FitsToSlot(PlayerEntry entry, RaidSlot slot)
