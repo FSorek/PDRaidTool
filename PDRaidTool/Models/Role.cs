@@ -9,6 +9,6 @@ namespace PDRaidTool.Models
     public class Role
     {
         public int Id;
-        public string RoleName;
+        public string RoleName { get; set; }
     }
 }

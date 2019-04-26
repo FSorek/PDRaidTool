@@ -8,11 +8,11 @@ namespace PDRaidTool.Models
 {
     public class PlayerEntry
     {
-        public int Id;
-        public int PlayerId;
-        public int ProfessionId;
-        public int SpecialisationId;
-        public int RoleId;
-        public int Preference;
+        public int Id { get; set; }
+        public int PlayerId { get; set; }
+        public int ProfessionId { get; set; }
+        public int SpecialisationId { get; set; }
+        public int RoleId { get; set; }
+        public int Preference { get; set; }
     }
 }

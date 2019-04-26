@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PDRaidTool.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PDRaidTool.ViewModels.Interfaces;
 
 namespace PDRaidTool.UI
 {
@@ -24,5 +26,15 @@ namespace PDRaidTool.UI
         {
             InitializeComponent();
         }
+
+        private int slotId { get; set; }
+
+        public int SlotId
+        {
+            get { return (int)slotId; }
+            set { this.SetValue(SlotIdProperty, value); }
+        }
+        public static readonly DependencyProperty SlotIdProperty = DependencyProperty.Register(
+            "SlotId", typeof(int), typeof(RaidSlotControl), new PropertyMetadata(-1));
     }
 }

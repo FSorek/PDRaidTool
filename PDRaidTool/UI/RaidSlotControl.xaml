@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:local="clr-namespace:PDRaidTool.UI"
+             xmlns:vms="clr-namespace:PDRaidTool.ViewModels"
+             xmlns:models="clr-namespace:PDRaidTool.Models"
+             xmlns:command="http://www.galasoft.ch/mvvmlight"
              mc:Ignorable="d" 
              d:DesignHeight="244" d:DesignWidth="220">
     <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="224" VerticalAlignment="Top" Width="199" Margin="10,10,0,0">
@@ -14,9 +18,58 @@
                 <RowDefinition Height="25*"/>
                 <RowDefinition Height="36*"/>
             </Grid.RowDefinitions>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Grid.Row="0" Margin="10,10,0,0"/>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Grid.Row="1" Margin="10,10,0,0"/>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Grid.Row="2" Margin="10,10,0,0"/>
+
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" ItemsSource="{Binding RolesCollection}" Grid.Row="0" Margin="10,10,0,0" SelectedItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type Window}},
+                                                         Path=DataContext.SelectedRole, Mode=OneWayToSource}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding OnRoleChangedCommand}" 
+                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type UserControl}},
+                                                         Path=SlotId}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding RoleName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Grid.Row="1" Margin="10,10,0,0" ItemsSource="{Binding ProfessionsCollection}" SelectedItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type Window}},
+                                                         Path=DataContext.SelectedProfession, Mode=OneWayToSource}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding OnProfessionChangedCommand}" 
+                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type UserControl}},
+                                                         Path=SlotId}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Grid.Row="2" Margin="10,10,0,0" ItemsSource="{Binding SpecialisationsCollection}" SelectedItem="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type Window}},
+                                                         Path=DataContext.SelectedSpecialisation, Mode=OneWayToSource}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding OnSpecialisationChangedCommand}" 
+                                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+                                                         AncestorType={x:Type UserControl}},
+                                                         Path=SlotId}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </Grid>
     </Border>
 </UserControl>

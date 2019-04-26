@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PDRaidTool.ViewModels.Interfaces
 {
-    interface IMainViewModel
+    public interface IMainViewModel
     {
     }
 }

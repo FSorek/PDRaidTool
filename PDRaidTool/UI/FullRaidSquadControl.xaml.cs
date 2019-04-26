@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PDRaidTool.ViewModels.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,19 +13,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PDRaidTool.ViewModels.Interfaces;
 
-namespace PDRaidTool
+namespace PDRaidTool.UI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FullRaidSquadControl.xaml
     /// </summary>
-    public partial class MainWindow : Window, IMainViewModel
+    public partial class FullRaidSquadControl : UserControl
     {
-        public MainWindow(IMainViewModel vm)
+        public FullRaidSquadControl()
         {
             InitializeComponent();
-            DataContext = vm;
         }
     }
 }

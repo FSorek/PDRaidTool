@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PDRaidTool.ViewModels.Interfaces;
 
-namespace PDRaidTool
+namespace PDRaidTool.UI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PlayerListControl.xaml
     /// </summary>
-    public partial class MainWindow : Window, IMainViewModel
+    public partial class PlayerListControl : UserControl
     {
-        public MainWindow(IMainViewModel vm)
+        public PlayerListControl()
         {
             InitializeComponent();
-            DataContext = vm;
         }
     }
 }

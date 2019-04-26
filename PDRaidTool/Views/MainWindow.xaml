@@ -5,31 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDRaidTool"
         xmlns:ui="clr-namespace:PDRaidTool.UI"
+        xmlns:vms="clr-namespace:PDRaidTool.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Width="1320">
+        Title="MainWindow" Height="620" Width="1320">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="260*"/>
-            <RowDefinition Height="260*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="55*"/>
-        </Grid.ColumnDefinitions>
-        <ui:RaidSlotControl Grid.Row="0" Grid.Column="0"/>
-        <ui:RaidSlotControl Grid.Row="0" Grid.Column="1"/>
-        <ui:RaidSlotControl Grid.Row="0" Grid.Column="2"/>
-        <ui:RaidSlotControl Grid.Row="0" Grid.Column="3"/>
-        <ui:RaidSlotControl Grid.Row="0" Grid.Column="4"/>
-
-        <ui:RaidSlotControl Grid.Row="1" Grid.Column="0"/>
-        <ui:RaidSlotControl Grid.Row="1" Grid.Column="1"/>
-        <ui:RaidSlotControl Grid.Row="1" Grid.Column="2"/>
-        <ui:RaidSlotControl Grid.Row="1" Grid.Column="3"/>
-        <ui:RaidSlotControl Grid.Row="1" Grid.Column="4"/>
+        <ui:FullRaidSquadControl/>
     </Grid>
 </Window>

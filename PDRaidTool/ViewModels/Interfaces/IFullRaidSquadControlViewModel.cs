@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDRaidTool.Models
+namespace PDRaidTool.ViewModels.Interfaces
 {
-    public class Profession
+    public interface IFullRaidSquadControlViewModel
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
     }
 }

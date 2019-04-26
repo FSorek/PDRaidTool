@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PDRaidTool.Models;
+using PDRaidTool.Utilities.Interfaces;
 
 namespace PDRaidTool.Utilities
 {
-    public class PreferenceCalculation
+    public class PreferenceCalculation : IPreferenceFinder
     {
         public PlayerEntry[,] CreateEntryMatrix(RaidSlot[] Slots, Player[] Players, PlayerEntry[] PlayersEntries)
         {

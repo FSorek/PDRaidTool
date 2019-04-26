@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using PDRaidTool.UI;
+using PDRaidTool.Utilities;
+using PDRaidTool.Utilities.Interfaces;
 using PDRaidTool.ViewModels;
 using PDRaidTool.ViewModels.Interfaces;
 using Unity;
@@ -16,16 +19,18 @@ namespace PDRaidTool
     /// </summary>
     public partial class App : Application
     {
-        private void App_OnStartup(object sender, StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);  
             IUnityContainer container = new UnityContainer();
+
+            container.RegisterType<IMainViewModel, MainWindow>();
             container.RegisterType<IMainViewModel, MainViewModel>();
 
+            container.RegisterType<IPreferenceFinder, PreferenceCalculation>();
+            container.RegisterType<IDataAccess, DataAccess>();
 
-
-            var mainViewModel = container.Resolve<MainViewModel>();
-            var window = new MainWindow { DataContext = mainViewModel };
-            window.Show();
+            container.Resolve<MainWindow>().Show();
         }
     }
 }

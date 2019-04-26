@@ -8,8 +8,8 @@ namespace PDRaidTool.Models
 {
     public class Specialisation
     {
-        public int Id;
-        public string Name;
-        public int ProfessionID;
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int ProfessionID { get; set; }
     }
 }
