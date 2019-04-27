@@ -10,6 +10,18 @@ namespace PDRaidTool.Utilities
 {
     public class DataAccess : IDataAccess
     {
+        public Player[] GetPlayers()
+        {
+            Player[] temporaryData = new Player[4]
+            {
+                new Player(){Id = 0, Nickname = "okito"},
+                new Player(){Id = 1, Nickname = "simon"},
+                new Player(){Id = 2, Nickname = "jenna"},
+                new Player(){Id = 3, Nickname = "Justin Bieber"}
+            };
+            return temporaryData;
+        }
+
         public Profession[] GetProfessions()
         {
             Profession[] temporaryData = new Profession[4]

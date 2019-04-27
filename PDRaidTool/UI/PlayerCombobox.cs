@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
-namespace PDRaidTool.ViewModels.Interfaces
+namespace PDRaidTool.UI
 {
-    public interface IFullRaidSquadControlViewModel
+    public class PlayerCombobox : ComboBox
     {
+
     }
 }

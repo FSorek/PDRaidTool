@@ -7,4 +7,11 @@
     d1p1:Ignorable="d" 
     xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
     >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

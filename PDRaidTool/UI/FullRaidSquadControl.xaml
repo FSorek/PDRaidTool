@@ -7,15 +7,13 @@
              xmlns:local="clr-namespace:PDRaidTool.UI"
              xmlns:ui="clr-namespace:PDRaidTool.UI"
              mc:Ignorable="d" 
-             d:DesignHeight="620" d:DesignWidth="1320">
+             d:DesignHeight="520" d:DesignWidth="1320">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="260*"/>
             <RowDefinition Height="260*"/>
-            <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="55*"/>
             <ColumnDefinition Width="55*"/>
@@ -33,10 +31,5 @@
         <ui:RaidSlotControl Grid.Row="1" Grid.Column="2" SlotId = "7"/>
         <ui:RaidSlotControl Grid.Row="1" Grid.Column="3" SlotId = "8"/>
         <ui:RaidSlotControl Grid.Row="1" Grid.Column="4" SlotId = "9"/>
-
-        <ui:PlayerListControl Grid.Row="0" Grid.Column="5"/>
-        <ui:PlayerListControl Grid.Row="1" Grid.Column="5"/>
-
-        <Button Grid.Row="2" Margin="20" BorderThickness="2" Content="Find Composition" FontSize="18" FontFamily="Arial Black"/>
     </Grid>
 </UserControl>

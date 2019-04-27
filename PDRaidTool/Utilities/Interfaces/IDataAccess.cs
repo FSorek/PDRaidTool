@@ -12,5 +12,6 @@ namespace PDRaidTool.Utilities.Interfaces
         Role[] GetRoles();
         Profession[] GetProfessions();
         Specialisation[] GetSpecialisations();
+        Player[] GetPlayers();
     }
 }

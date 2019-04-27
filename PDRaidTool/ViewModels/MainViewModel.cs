@@ -20,8 +20,9 @@ namespace PDRaidTool.ViewModels
         public ObservableCollection<Role> RolesCollection { get; set; }
         public ObservableCollection<Profession> ProfessionsCollection { get; set; }
         public ObservableCollection<Specialisation> SpecialisationsCollection { get; set; }
+        public ObservableCollection<Player> PlayersCollection { get; set; }
 
-        
+
 
         private Role selectedRole;
         public Role SelectedRole
@@ -59,8 +60,19 @@ namespace PDRaidTool.ViewModels
             }
         }
 
-
-        public ObservableCollection<int> PlayersCollection { get; set; }
+        private Player selectedPlayer;
+        public Player SelectedPlayer
+        {
+            get
+            {
+                return selectedPlayer;
+            }
+            set
+            {
+                selectedPlayer = value;
+                RaisePropertyChanged("SelectedPlayer");
+            }
+        }
         public int SlotCount { get; set; }
 
         private PlayerEntry[] PlayerEntries;
@@ -74,10 +86,13 @@ namespace PDRaidTool.ViewModels
             this.OnRoleChangedCommand = new RelayCommand<int>((obj) => this.ExecuteOnRoleChangedCommand(obj));
             this.OnProfessionChangedCommand = new RelayCommand<int>((obj) => this.ExecuteOnProfessionChangedCommand(obj));
             this.OnSpecialisationChangedCommand = new RelayCommand<int>((obj) => this.ExecuteOnSpecialisationChangedCommand(obj));
+            this.OnPlayerChangedCommand = new RelayCommand<string>((obj) => this.ExecuteOnPlayerChangedCommand(obj));
+
 
             RolesCollection = new ObservableCollection<Role>(dataAccess.GetRoles());
             ProfessionsCollection = new ObservableCollection<Profession>(dataAccess.GetProfessions());
             SpecialisationsCollection = new ObservableCollection<Specialisation>(dataAccess.GetSpecialisations());
+            PlayersCollection = new ObservableCollection<Player>(dataAccess.GetPlayers());
 
 
             RaidSlots = new RaidSlot[10]; // SlotCount
@@ -101,7 +116,8 @@ namespace PDRaidTool.ViewModels
         public RelayCommand<int> OnRoleChangedCommand { get; set; }
         public RelayCommand<int> OnProfessionChangedCommand { get; set; }
         public RelayCommand<int> OnSpecialisationChangedCommand { get; set; }
-
+        public RelayCommand<string> OnPlayerChangedCommand { get; set; }
+        
         public void ExecuteOnRoleChangedCommand(int slot)
         {
             if(RaidSlots[slot] == null)
@@ -119,6 +135,13 @@ namespace PDRaidTool.ViewModels
             if (RaidSlots[slot] == null)
                 RaidSlots[slot] = new RaidSlot();
             RaidSlots[slot].SpecialisationId = selectedSpecialisation.Id;
+        }
+        public void ExecuteOnPlayerChangedCommand(string idString)
+        {
+            int slot = Int32.Parse(idString);
+            if (Players[slot] == null)
+                Players[slot] = new Player();
+            Players[slot].Id = selectedPlayer.Id;
         }
     }
 }

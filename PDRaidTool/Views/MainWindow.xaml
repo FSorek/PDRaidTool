@@ -8,7 +8,8 @@
         xmlns:vms="clr-namespace:PDRaidTool.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="620" Width="1320">
-    <Grid>
-        <ui:FullRaidSquadControl/>
-    </Grid>
+    <DockPanel>
+        <ui:FullRaidSquadControl DockPanel.Dock="Left"/>
+        <ui:PlayerListControl DockPanel.Dock="Right"/>
+    </DockPanel>
 </Window>
