@@ -19,9 +19,9 @@ namespace PDRaidToolWebApp.Controllers
         private ToolEntities db = new ToolEntities();
 
         // GET: api/Rolesh
-        public Role[] GetRoles()
+        public IQueryable<Role> GetRoles()
         {
-            return db.Roles.ToArray();
+            return db.Roles;
         }
 
         // GET: api/Roles/5
