@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using PDRaidTool.Models;
 using PDRaidTool.Utilities.Interfaces;
 
@@ -10,52 +12,43 @@ namespace PDRaidTool.Utilities
 {
     public class DataAccess : IDataAccess
     {
-        public Player[] GetPlayers()
+        static HttpClient client = new HttpClient();
+
+        public async Task<Player[]> GetPlayers()
         {
-            Player[] temporaryData = new Player[4]
-            {
-                new Player(){Id = 0, Nickname = "okito"},
-                new Player(){Id = 1, Nickname = "simon"},
-                new Player(){Id = 2, Nickname = "jenna"},
-                new Player(){Id = 3, Nickname = "Justin Bieber"}
-            };
-            return temporaryData;
+            Player[] players;
+            string data = await client.GetStringAsync("http://pdraidtoolweb.azurewebsites.net/api/Players");
+
+            players = JsonConvert.DeserializeObject<Player[]>(data);
+            return players;
         }
 
-        public Profession[] GetProfessions()
+        public async Task<Role[]> GetRoles()
         {
-            Profession[] temporaryData = new Profession[4]
-            {
-                new Profession(){Id = 0, Name = "Pro1"},
-                new Profession(){Id = 1, Name = "Pro2"},
-                new Profession(){Id = 2, Name = "Pro3"},
-                new Profession(){Id = 3, Name = "Pro4"}
-            };
-            return temporaryData;
+            Role[] roles = null;
+            string data = await client.GetStringAsync("http://pdraidtoolweb.azurewebsites.net/api/Roles");
+
+            roles = JsonConvert.DeserializeObject<Role[]>(data);
+            return roles;
         }
 
-        public Role[] GetRoles()
+
+        public async Task<Profession[]> GetProfessions()
         {
-            Role[] temporaryData = new Role[4]
-            {
-                new Role(){Id = 0, RoleName = "Role1"},
-                new Role(){Id = 1, RoleName = "Role2"},
-                new Role(){Id = 2, RoleName = "Role3"},
-                new Role(){Id = 3, RoleName = "Role4"}
-            };
-            return temporaryData;
+            Profession[] professions = null;
+            string data = await client.GetStringAsync("http://pdraidtoolweb.azurewebsites.net/api/Professions");
+
+            professions = JsonConvert.DeserializeObject<Profession[]>(data);
+            return professions;
         }
 
-        public Specialisation[] GetSpecialisations()
+        public async Task<Specialisation[]> GetSpecialisations()
         {
-            Specialisation[] temporaryData = new Specialisation[4]
-            {
-                new Specialisation(){Id = 0, Name = "Spec1"},
-                new Specialisation(){Id = 1, Name = "Spec2"},
-                new Specialisation(){Id = 2, Name = "Spec3"},
-                new Specialisation(){Id = 3, Name = "Spec4"}
-            };
-            return temporaryData;
+            Specialisation[] specialisations = null;
+            string data = await client.GetStringAsync("http://pdraidtoolweb.azurewebsites.net/api/Specializations");
+
+            specialisations = JsonConvert.DeserializeObject<Specialisation[]>(data);
+            return specialisations;
         }
     }
 }

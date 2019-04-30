@@ -8,7 +8,7 @@ namespace PDRaidTool.Models
 {
     public class Profession
     {
-        public int Id { get; set; }
+        public int PID { get; set; }
         public string Name { get; set; }
     }
 }

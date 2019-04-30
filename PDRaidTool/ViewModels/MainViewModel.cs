@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -15,8 +16,6 @@ namespace PDRaidTool.ViewModels
 {
     public class MainViewModel : ViewModelBase, IMainViewModel
     {
-        //public RelayCommand<RaidSlot> SetRoleCommand =
-        //    new RelayCommand<RaidSlot>((slot) => CommandSetRole(slot.Id, slot.RoleId));
         public ObservableCollection<Role> RolesCollection { get; set; }
         public ObservableCollection<Profession> ProfessionsCollection { get; set; }
         public ObservableCollection<Specialisation> SpecialisationsCollection { get; set; }
@@ -89,11 +88,10 @@ namespace PDRaidTool.ViewModels
             this.OnPlayerChangedCommand = new RelayCommand<string>((obj) => this.ExecuteOnPlayerChangedCommand(obj));
 
 
-            RolesCollection = new ObservableCollection<Role>(dataAccess.GetRoles());
-            ProfessionsCollection = new ObservableCollection<Profession>(dataAccess.GetProfessions());
-            SpecialisationsCollection = new ObservableCollection<Specialisation>(dataAccess.GetSpecialisations());
-            PlayersCollection = new ObservableCollection<Player>(dataAccess.GetPlayers());
-
+            RolesCollection = new ObservableCollection<Role>(Task.Run(() => dataAccess.GetRoles()).Result);
+            ProfessionsCollection = new ObservableCollection<Profession>(Task.Run(() => dataAccess.GetProfessions()).Result);
+            SpecialisationsCollection = new ObservableCollection<Specialisation>(Task.Run(() => dataAccess.GetSpecialisations()).Result);
+            PlayersCollection = new ObservableCollection<Player>(Task.Run(() => dataAccess.GetPlayers()).Result);
 
             RaidSlots = new RaidSlot[10]; // SlotCount
             Players = new Player[10]; // SlotCount
@@ -107,6 +105,7 @@ namespace PDRaidTool.ViewModels
 
         private PlayerEntry[] GetPlayerEntries()
         {
+            /// Get Entries for each selected player in comp
             /// PlayerEntries = from database where database.playerId equals PlayersCollection[i] 
             /// 
             ///  
@@ -122,26 +121,26 @@ namespace PDRaidTool.ViewModels
         {
             if(RaidSlots[slot] == null)
                 RaidSlots[slot] = new RaidSlot();
-            RaidSlots[slot].RoleId = selectedRole.Id;
+            RaidSlots[slot].RoleId = selectedRole.RID;
         }
         public void ExecuteOnProfessionChangedCommand(int slot)
         {
             if (RaidSlots[slot] == null)
                 RaidSlots[slot] = new RaidSlot();
-            RaidSlots[slot].ProfessionId = selectedProfession.Id;
+            RaidSlots[slot].ProfessionId = selectedProfession.PID;
         }
         public void ExecuteOnSpecialisationChangedCommand(int slot)
         {
             if (RaidSlots[slot] == null)
                 RaidSlots[slot] = new RaidSlot();
-            RaidSlots[slot].SpecialisationId = selectedSpecialisation.Id;
+            RaidSlots[slot].SpecialisationId = selectedSpecialisation.SID;
         }
         public void ExecuteOnPlayerChangedCommand(string idString)
         {
             int slot = Int32.Parse(idString);
             if (Players[slot] == null)
                 Players[slot] = new Player();
-            Players[slot].Id = selectedPlayer.Id;
+            Players[slot].PID = selectedPlayer.PID;
         }
     }
 }

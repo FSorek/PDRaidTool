@@ -12,7 +12,7 @@ namespace XUnitTests.UtilitiesTests
     {
         Player[] players = new Player[]
         {
-            new Player(){Id = 0, Nickname = "okito"}, new Player(){Id = 1, Nickname = "vi"}
+            new Player(){PID = 0, Account = "okito"}, new Player(){PID = 1, Account = "vi"}
         };
         RaidSlot[] slots = new RaidSlot[]
         {

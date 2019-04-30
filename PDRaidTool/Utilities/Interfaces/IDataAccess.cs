@@ -9,9 +9,9 @@ namespace PDRaidTool.Utilities.Interfaces
 {
     public interface IDataAccess
     {
-        Role[] GetRoles();
-        Profession[] GetProfessions();
-        Specialisation[] GetSpecialisations();
-        Player[] GetPlayers();
+        Task<Role[]> GetRoles();
+        Task<Profession[]> GetProfessions();
+        Task<Specialisation[]> GetSpecialisations();
+        Task<Player[]> GetPlayers();
     }
 }

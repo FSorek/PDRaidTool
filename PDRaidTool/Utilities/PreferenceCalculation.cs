@@ -16,7 +16,7 @@ namespace PDRaidTool.Utilities
             for (int i = 0; i < Players.Length; i++)
             {
                 PlayerEntry[] PlayerEntries = (from entries in PlayersEntries
-                    where entries.PlayerId == Players[i].Id
+                    where entries.PlayerId == Players[i].PID
                     select entries).ToArray();
                 for (int j = 0; j < Slots.Length; j++)
                 {

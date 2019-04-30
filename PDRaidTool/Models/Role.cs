@@ -8,7 +8,7 @@ namespace PDRaidTool.Models
 {
     public class Role
     {
-        public int Id;
-        public string RoleName { get; set; }
+        public int RID { get; set; }
+        public string Name { get; set; }
     }
 }

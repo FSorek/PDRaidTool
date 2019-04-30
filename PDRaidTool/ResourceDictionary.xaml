@@ -13,11 +13,11 @@
     </Style>
 
     <DataTemplate DataType="{x:Type models:Player}">
-        <TextBlock Text="{Binding Nickname}"/>
+        <TextBlock Text="{Binding Account}"/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type models:Role}">
-        <TextBlock Text="{Binding RoleName}"/>
+        <TextBlock Text="{Binding Name}"/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type models:Profession}">
