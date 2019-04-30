@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDRaidTool", "PDRaidTool\PDRaidTool.csproj", "{462FFF5E-945D-4793-958A-DC46743FE79E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDRaidToolClient", "PDRaidTool\PDRaidToolClient.csproj", "{462FFF5E-945D-4793-958A-DC46743FE79E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTests", "XUnitTests\XUnitTests.csproj", "{1DACDBD9-833E-4FA3-8336-CFA02CB1833F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTests", "XUnitTests\XUnitTests.csproj", "{1DACDBD9-833E-4FA3-8336-CFA02CB1833F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDRaidToolWebApp", "PDRaidToolWebApp\PDRaidToolWebApp.csproj", "{D8FBEF44-0D62-4664-A7D9-C6795DFF3BE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDRaidToolDataAccessLayer", "PDRaidToolDataAccessLayer\PDRaidToolDataAccessLayer.csproj", "{F1C2689D-B9D0-4D6A-A651-4D965C5EFD10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{1DACDBD9-833E-4FA3-8336-CFA02CB1833F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DACDBD9-833E-4FA3-8336-CFA02CB1833F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DACDBD9-833E-4FA3-8336-CFA02CB1833F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8FBEF44-0D62-4664-A7D9-C6795DFF3BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8FBEF44-0D62-4664-A7D9-C6795DFF3BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8FBEF44-0D62-4664-A7D9-C6795DFF3BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8FBEF44-0D62-4664-A7D9-C6795DFF3BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C2689D-B9D0-4D6A-A651-4D965C5EFD10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C2689D-B9D0-4D6A-A651-4D965C5EFD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C2689D-B9D0-4D6A-A651-4D965C5EFD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C2689D-B9D0-4D6A-A651-4D965C5EFD10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
