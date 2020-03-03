@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4f1de12b550145c5b3834c3f00a9720b" Name="Diagram1">
+        <EntityTypeShape EntityType="RaidToolModel.Entry" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RaidToolModel.Player" Width="1.5" PointX="8.125" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RaidToolModel.Profession" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="RaidToolModel.Role" Width="1.5" PointX="7.625" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RaidToolModel.Specialization" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="RaidToolModel.FK__Entry__PlayerID__32AB8735" ManuallyRouted="false" />
+        <AssociationConnector Association="RaidToolModel.FK__Entry__Professio__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="RaidToolModel.FK__Entry__RoleID__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="RaidToolModel.FK__Entry__Specializ__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="RaidToolModel.FK__Specializat__PID__2BFE89A6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
